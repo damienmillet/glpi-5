@@ -42,5 +42,5 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/glpi-5:latest
-          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/glpi-5:buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/glpi-5:buildcache,mode=max
+#          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/glpi-5:buildcache
+#          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/glpi-5:buildcache,mode=max
