@@ -3,13 +3,13 @@ FROM alpine:latest
 ENV TIMEZONE Europe/Paris
 
 RUN apk update && apk upgrade
-RUN apk add apache2 php8 php8-apache2 mariadb mariadb-client openrc \
-    php8-fpm php8-opcache php8-apache2 php8-cli php8-phar php8-zlib \
-    php8-zip php8-bz2 php8-ctype php8-curl php8-pdo_mysql \
-    php8-mysqli php8-json php8-xml php8-dom php8-iconv \
-    php8-xdebug php8-session php8-intl php8-gd php8-mbstring \
-    php8-apcu php8-opcache php8-tokenizer php8-simplexml \
-    php8-fileinfo php8-ldap php8-exif php8-sodium
+RUN apk add apache2 php82 php82-apache2 mariadb mariadb-client openrc \
+    php82-fpm php82-opcache php82-cli php82-phar php82-zlib \
+    php82-zip php82-bz2 php82-ctype php82-curl php82-pdo_mysql \
+    php82-mysqli php82-json php82-xml php82-dom php82-iconv \
+    php82-xdebug php82-session php82-intl php82-gd php82-mbstring \
+    php82-apcu php82-opcache php82-tokenizer php82-simplexml \
+    php82-fileinfo php82-ldap php82-exif php82-sodium
 
 RUN ln -s /usr/bin/php8 /usr/bin/php
 
@@ -24,11 +24,11 @@ RUN mkdir -p /run/mysqld && chown -R mysql:mysql /run/mysqld /var/lib/mysql && \
     sed -i '/mariadb\]/a general_log = ON' /etc/my.cnf.d/mariadb-server.cnf && \
     sed -i '/mariadb\]/a general_log_file = \/var\/lib\/mysql\/query.log' /etc/my.cnf.d/mariadb-server.cnf
 
-RUN sed -i 's#display_errors = Off#display_errors = On#' /etc/php8/php.ini && \
-    sed -i 's#upload_max_filesize = 2M#upload_max_filesize = 100M#' /etc/php8/php.ini && \
-    sed -i 's#post_max_size = 8M#post_max_size = 100M#' /etc/php8/php.ini && \
-    sed -i 's#session.cookie_httponly =#session.cookie_httponly = true#' /etc/php8/php.ini && \
-    sed -i 's#error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT#error_reporting = E_ALL#' /etc/php8/php.ini
+RUN sed -i 's#display_errors = Off#display_errors = On#' /etc/php82/php.ini && \
+    sed -i 's#upload_max_filesize = 2M#upload_max_filesize = 100M#' /etc/php82/php.ini && \
+    sed -i 's#post_max_size = 8M#post_max_size = 100M#' /etc/php82/php.ini && \
+    sed -i 's#session.cookie_httponly =#session.cookie_httponly = true#' /etc/php82/php.ini && \
+    sed -i 's#error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT#error_reporting = E_ALL#' /etc/php82/php.ini
 
 WORKDIR /var/www/localhost/htdocs/
 
