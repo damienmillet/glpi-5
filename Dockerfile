@@ -11,7 +11,7 @@ RUN apk add apache2 php82 php82-apache2 mariadb mariadb-client openrc \
     php82-apcu php82-opcache php82-tokenizer php82-simplexml \
     php82-fileinfo php82-ldap php82-exif php82-sodium
 
-RUN ln -s /usr/bin/php8 /usr/bin/php
+RUN ln -s /usr/bin/php82 /usr/bin/php
 
 RUN mkdir -p /run/mysqld && chown -R mysql:mysql /run/mysqld /var/lib/mysql && \
     mkdir -p /run/apache2 && chown -R apache:apache /run/apache2 && chown -R apache:apache /var/www/localhost/htdocs/ && \
