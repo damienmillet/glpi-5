@@ -30,11 +30,11 @@ RUN mkdir -p /run/mysqld && chown -R mysql:mysql /run/mysqld /var/lib/mysql && \
     sed -i '/mariadb\]/a general_log = ON' /etc/my.cnf.d/mariadb-server.cnf && \
     sed -i '/mariadb\]/a general_log_file = \/var\/lib\/mysql\/query.log' /etc/my.cnf.d/mariadb-server.cnf
 
-RUN sed -i 's#display_errors = Off#display_errors = On#' /etc/$PHP_VERSION/php.ini && \
-    sed -i 's#upload_max_filesize = 2M#upload_max_filesize = 100M#' /etc/$PHP_VERSION/php.ini && \
-    sed -i 's#post_max_size = 8M#post_max_size = 100M#' /etc/$PHP_VERSION/php.ini && \
-    sed -i 's#session.cookie_httponly =#session.cookie_httponly = true#' /etc/$PHP_VERSION/php.ini && \
-    sed -i 's#error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT#error_reporting = E_ALL#' /etc/$PHP_VERSION/php.ini
+#RUN sed -i 's#display_errors = Off#display_errors = On#' /etc/$PHP_VERSION/php.ini && \
+#    sed -i 's#upload_max_filesize = 2M#upload_max_filesize = 100M#' /etc/$PHP_VERSION/php.ini && \
+#    sed -i 's#post_max_size = 8M#post_max_size = 100M#' /etc/$PHP_VERSION/php.ini && \
+#    sed -i 's#session.cookie_httponly =#session.cookie_httponly = true#' /etc/$PHP_VERSION/php.ini && \
+#    sed -i 's#error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT#error_reporting = E_ALL#' /etc/$PHP_VERSION/php.ini
 
 WORKDIR /var/www/localhost/htdocs/
 
