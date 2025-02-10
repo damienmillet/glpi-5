@@ -2,7 +2,7 @@ FROM alpine:latest
 
 ENV TIMEZONE Europe/Paris
 
-RU apk update && apk upgrade
+RUN apk update && apk upgrade
 RUN apk add apache2 mariadb mariadb-client openrc  icu-data-full
 
 #RUN echo "@community http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && apk update
